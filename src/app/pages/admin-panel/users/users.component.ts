@@ -25,4 +25,12 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  public editUser(id: number) {
+    let test = id;
+
+  }
+
+  public deleteUser(id: number) {
+    let test = id;
+  }
 }

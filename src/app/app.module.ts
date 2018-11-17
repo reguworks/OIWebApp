@@ -12,6 +12,8 @@ import { NavbarComponent } from './pages/html-components/navbar/navbar.component
 import { FooterComponent } from './pages/html-components/footer/footer.component';
 import { BaseAdminComponent } from './pages/admin-panel/base-admin/base-admin.component';
 import { UsersComponent } from './pages/admin-panel/users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UsersComponent } from './pages/admin-panel/users/users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
