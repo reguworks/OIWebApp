@@ -1,7 +1,8 @@
 <p>
   users works!
 </p>
-<div class='container'>
+<div class='container' *ngIf="new==false">
+  <button (click)='newClick()'>New</button>
   <table class="table" id='userTable'>
     <thead>
       <tr *ngFor="let user of users">
@@ -20,4 +21,10 @@
       </tr>
     </thead>
   </table>
+</div>
+
+<div *ngIf="new==true" class='container'>
+  <input type="text" [(ngModel)]='user.id'>
+  <input type="text" [(ngModel)]='user.username'>
+  <button (click)='createUser(user)'>Delete</button>
 </div>

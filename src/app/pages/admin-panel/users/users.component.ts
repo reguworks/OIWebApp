@@ -9,7 +9,7 @@ import { UsersService } from '../../../services/users/users.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
+  new: boolean = false;
   user: User = new User();
   users: User[];  
 
@@ -27,6 +27,7 @@ export class UsersComponent implements OnInit {
 
   public createUser(user: User) {
     this.userService.insertUser(user).subscribe((data: User) => {
+      this.new = false;
       this.getUsers();
     });
   }
@@ -41,5 +42,10 @@ export class UsersComponent implements OnInit {
     this.userService.deleteUser(user.id).subscribe((data: User) => {
        this.getUsers() 
       });
+  }
+
+  public newClick() {
+    this.user = new User();
+    this.new = true;
   }
 }
