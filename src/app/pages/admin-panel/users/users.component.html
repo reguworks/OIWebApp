@@ -9,14 +9,13 @@
         <input type="text" [(ngModel)]='user.id'>
       </td>
       <td>
-        
         <input type="text" [(ngModel)]='user.username'>
       </td>
       <td>
-        <button (click)='editUser(user.id)'>Edit</button>
+        <button (click)='editUser(user)'>Edit</button>
       </td>
       <td>
-        <button (click)='deleteUser(user.id)'>Delete</button>
+        <button (click)='deleteUser(user)'>Delete</button>
       </td>
     </tr>
   </thead>
