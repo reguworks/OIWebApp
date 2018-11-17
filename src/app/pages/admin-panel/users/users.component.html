@@ -5,9 +5,15 @@
   <button (click)='newClick()'>New</button>
   <table class="table" id='userTable'>
     <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
       <tr *ngFor="let user of users">
         <td>
-          <input type="text" [(ngModel)]='user.id'>
+          {{user.id}}
         </td>
         <td>
           <input type="text" [(ngModel)]='user.username'>
@@ -24,7 +30,21 @@
 </div>
 
 <div *ngIf="new==true" class='container'>
-  <input type="text" [(ngModel)]='user.id'>
-  <input type="text" [(ngModel)]='user.username'>
-  <button (click)='createUser(user)'>Delete</button>
+  <table class="table" id='userTable'>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" [(ngModel)]='user.id'>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]='user.username'>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <button (click)='createUser(user)'>Create</button>
 </div>
