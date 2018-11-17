@@ -25,9 +25,21 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  public createUser(user: User) {
+    this.userService.insertUser(user).subscribe((data: User) => {
+      this.getUsers();
+    });
+  }
+
   public editUser(user: User) {
+    this.userService.updateUser(user).subscribe((data: User) => { 
+      this.getUsers() 
+    });
   }
 
   public deleteUser(user: User) {
+    this.userService.deleteUser(user.id).subscribe((data: User) => {
+       this.getUsers() 
+      });
   }
 }

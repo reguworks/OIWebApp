@@ -24,14 +24,13 @@ export class UsersService {
   // }
 
   updateUser(user: User) {
-    return this.http.put(`${url}/users` + user.id, user);
+    return this.http.put(`${url}/users`, user);
   }
 
-  deleteUser(id: string) {
+  deleteUser(id: number) {
      
-    var obj = this.http.delete(`${url}/users` + id);
+    var obj = this.http.delete(`${url}/users/` + id);
 
     return obj;
   }
-
 }
