@@ -23,11 +23,11 @@ export class UsersService {
   //   return this.http.get<User>(`${this.url}/contact` + '/' + id);
   // }
 
-  updateContact(user: User) {
+  updateUser(user: User) {
     return this.http.put(`${url}/users` + user._id, user);
   }
 
-  deleteContact(id: string) {
+  deleteUser(id: string) {
      
     var obj = this.http.delete(`${url}/users` + id);
 

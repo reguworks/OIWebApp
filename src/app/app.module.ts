@@ -10,6 +10,8 @@ import { GoInsuranceComponent } from './pages/services/go-insurance/go-insurance
 import { BaseComponent } from './pages/base/base.component';
 import { NavbarComponent } from './pages/html-components/navbar/navbar.component';
 import { FooterComponent } from './pages/html-components/footer/footer.component';
+import { BaseAdminComponent } from './pages/admin-panel/base-admin/base-admin.component';
+import { UsersComponent } from './pages/admin-panel/users/users.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './pages/html-components/footer/footer.component
     GoInsuranceComponent,
     BaseComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    BaseAdminComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
