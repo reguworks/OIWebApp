@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +16,7 @@ import { BaseAdminComponent } from './pages/admin-panel/base-admin/base-admin.co
 import { UsersComponent } from './pages/admin-panel/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './pages/html-components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     BaseAdminComponent,
-    UsersComponent
+    UsersComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,15 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent],
+  
+  
 })
 export class AppModule { }
