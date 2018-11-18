@@ -13,6 +13,9 @@ import { FooterComponent } from './pages/html-components/footer/footer.component
 import { BaseAdminComponent } from './pages/admin-panel/base-admin/base-admin.component';
 import { UsersComponent } from './pages/admin-panel/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 import { FormsModule } from '@angular/forms';
 
 
@@ -33,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgHttpLoaderModule,
     FormsModule
   ],
   providers: [],
