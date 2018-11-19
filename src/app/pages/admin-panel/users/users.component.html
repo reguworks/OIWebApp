@@ -2,7 +2,7 @@
   users works!
 </p>
 <div class='container' *ngIf="new==false">
-  <button (click)='newClick()'>New</button>
+  <button (click)='newClick(true)'>New</button>
   <table class="table" id='userTable'>
     <thead>
       <tr>
@@ -16,7 +16,7 @@
           {{user.id}}
         </td>
         <td>
-          <input type="text" [(ngModel)]='user.username'>
+          <input type="text" [(ngModel)]='user.username' required="true" class="form-control" placeholder="Username">
         </td>
         <td>
           <button (click)='editUser(user)'>Edit</button>
@@ -33,18 +33,15 @@
   <table class="table" id='userTable'>
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Username</th>
       </tr>
       <tr>
         <td>
-          <input type="text" [(ngModel)]='user.id'>
-        </td>
-        <td>
-          <input type="text" [(ngModel)]='user.username'>
+          <input type="text" [(ngModel)]='user.username' required="true" class="form-control" placeholder="Username">
         </td>
       </tr>
     </thead>
   </table>
   <button (click)='createUser(user)'>Create</button>
+  <button (click)='newClick(false)'>Back</button>
 </div>
