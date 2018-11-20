@@ -1,9 +1,6 @@
-<p>
-  users works!
-</p>
 <div class='container' *ngIf="new==false">
-  <button (click)='newClick(true)'>New</button>
-  <table class="table" id='userTable'>
+  <button class="btn btn-primary" type="submit" (click)='newClick(true)'>New</button>
+  <table class="table table-sm" id='userTable'>
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -19,10 +16,19 @@
           <input type="text" [(ngModel)]='user.username' required="true" class="form-control" placeholder="Username">
         </td>
         <td>
-          <button (click)='editUser(user)'>Edit</button>
+          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control" placeholder="First Name">
         </td>
         <td>
-          <button (click)='deleteUser(user)'>Delete</button>
+          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control" placeholder="Last Name">
+        </td>
+        <td>
+          <input type="password" [(ngModel)]='user.password' required="true" class="form-control" placeholder="Password">
+        </td>
+        <td>
+          <button class="btn btn-primary" type="submit" (click)='editUser(user)'>Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary" type="submit" (click)='deleteUser(user)'>Delete</button>
         </td>
       </tr>
     </thead>
@@ -37,11 +43,26 @@
       </tr>
       <tr>
         <td>
-          <input type="text" [(ngModel)]='user.username' required="true" class="form-control" placeholder="Username">
+          <input type="text" [(ngModel)]='user.username' required="true" class="form-control col-3" placeholder="Username">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control col-3" placeholder="First Name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control col-3" placeholder="Last Name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="password" [(ngModel)]='user.password' required="true" class="form-control col-3" placeholder="Password">
         </td>
       </tr>
     </thead>
   </table>
-  <button (click)='createUser(user)'>Create</button>
-  <button (click)='newClick(false)'>Back</button>
+  <button class="btn btn-primary" type="submit" (click)='createUser(user)'>Create</button>
+  <button class="btn btn-secondary" type="submit" (click)='newClick(false)'>Back</button>
 </div>
