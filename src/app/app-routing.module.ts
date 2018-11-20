@@ -6,6 +6,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { GoInsuranceComponent } from './pages/services/go-insurance/go-insurance.component';
 import { BaseAdminComponent } from './pages/admin-panel/base-admin/base-admin.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'go-insurance', component: GoInsuranceComponent },
-  { path: 'admin', component: BaseAdminComponent },
+  { path: 'admin', component: BaseAdminComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

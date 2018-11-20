@@ -11,7 +11,9 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  
   getUsers() {
+    let token  = localStorage.getItem('access_token');
     return this.http.get(`${url}/users`);
   }
 
