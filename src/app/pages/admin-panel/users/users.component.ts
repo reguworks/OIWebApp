@@ -35,10 +35,13 @@ export class UsersComponent implements OnInit {
 
   public editUser(user: User) {
     this.userService.updateUser(user).subscribe((data: User) => { 
-      
-    }, err => this.showError(err),
+      this.getUsers()
+    }, err => {
+      this.showError(err) 
+      this.getUsers()}
+    ,
     );
-    this.getUsers()
+    
   }
 
   public deleteUser(user: User) {
