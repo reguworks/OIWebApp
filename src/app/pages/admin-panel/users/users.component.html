@@ -1,3 +1,11 @@
+<div class="container">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf='alertShow'>
+    {{erroMessage}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
 <div class='container' *ngIf="new==false">
   <button class="btn btn-primary" type="submit" (click)='newClick(true)'>New</button>
   <table class="table table-sm" id='userTable'>

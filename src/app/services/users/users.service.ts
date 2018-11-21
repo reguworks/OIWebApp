@@ -11,14 +11,13 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   getUsers() {
-    let token  = localStorage.getItem('access_token');
     return this.http.get(`${url}/users`);
   }
 
   insertUser(user: User) {
-    return this.http.post(`${url}/users` , user);
+    return this.http.post(`${url}/users`, user);
   }
 
   // getUserById(id: number) {
@@ -30,7 +29,7 @@ export class UsersService {
   }
 
   deleteUser(id: number) {
-     
+
     var obj = this.http.delete(`${url}/users/` + id);
 
     return obj;

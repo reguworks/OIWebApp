@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../../models/user';
 import { UsersService } from '../../../services/users/users.service';
+import { map } from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -10,8 +12,10 @@ import { UsersService } from '../../../services/users/users.service';
 })
 export class UsersComponent implements OnInit {
   new: boolean = false;
+  alertShow: boolean = false;
   user: User = new User();
   users: any;  
+  erroMessage: string;
 
   constructor(private userService: UsersService) { }
 
@@ -26,14 +30,15 @@ export class UsersComponent implements OnInit {
   }
 
   public createUser(user: User) {
+    this.alertShow = false;
     this.userService.insertUser(user).subscribe((data: User) => {
       this.new = false;
       this.getUsers();
     }, err => this.showError(err),);
-    
   }
 
   public editUser(user: User) {
+    this.alertShow = false;
     this.userService.updateUser(user).subscribe((data: User) => { 
       this.getUsers()
     }, err => {
@@ -45,6 +50,7 @@ export class UsersComponent implements OnInit {
   }
 
   public deleteUser(user: User) {
+    this.alertShow = false;
     this.userService.deleteUser(user.id).subscribe((data: User) => {
       this.getUsers() 
       }, err => this.showError(err),);
@@ -52,11 +58,14 @@ export class UsersComponent implements OnInit {
   }
 
   public newClick(isNew: boolean) {
+    this.alertShow = false;
     this.user = new User();
     this.new = isNew;
   }
 
   private showError(err: any): void {
-    alert(err.error.message);
+    this.alertShow = true;
+    this.erroMessage = err.error.message.substring(err.error.message.indexOf(':') + 2, err.error.message.length);
+
   }
 }
