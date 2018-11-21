@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   user: User = new User();
   users: any;  
   erroMessage: string;
+  visible: boolean = false;
 
   constructor(private userService: UsersService) { }
 
@@ -26,6 +27,7 @@ export class UsersComponent implements OnInit {
   private getUsers(): void {
     this.userService.getUsers().subscribe((data: User[]) => {
       this.users = data[0] ;
+      this.visible = true;
     }, err => this.showError(err),);
   }
 
