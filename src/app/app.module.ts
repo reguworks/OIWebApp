@@ -23,7 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './services/authentication/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 
-import domain from './settings/db-domain';
+import domain from '../../settings/db-domain';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
