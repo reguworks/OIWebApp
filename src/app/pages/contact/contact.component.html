@@ -1,3 +1,89 @@
-<p>
-  contact works!
-</p>
+<div class="container">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf='alertShow'>
+        {{erroMessage}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="container">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf='successShow'>
+            Message sent successfully!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xl-8 offset-xl-2 py-5">
+
+            <form id="contact-form" method="post" action="contact.php" role="form">
+
+                <div class="messages"></div>
+
+                <div class="controls">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_name">Firstname *</label>
+                                <input [(ngModel)]='message.firstName' id="form_name" type="text" name="name" class="form-control"
+                                    placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_lastname">Lastname *</label>
+                                <input [(ngModel)]='message.lastName' id="form_lastname" type="text" name="surname"
+                                    class="form-control" placeholder="Please enter your lastname *" required="required"
+                                    data-error="Lastname is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_email">Email *</label>
+                                <input [(ngModel)]='message.email' id="form_email" type="email" name="email" class="form-control"
+                                    placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_need">Phone number *</label>
+                                <input [(ngModel)]='message.phone' id="form_phone" type="phone" name="phone" class="form-control"
+                                    placeholder="Please enter your phone *" required="required" data-error="Valid phone is required.">
+
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="form_message">Message *</label>
+                                <textarea [(ngModel)]='message.message' id="form_message" name="message" class="form-control"
+                                    placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary" value="Send message" (click)='messageSend(message)'>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

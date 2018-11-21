@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'go-insurance', component: GoInsuranceComponent },
+  { path: 'services/go-insurance', component: GoInsuranceComponent },
   { path: 'admin', component: BaseAdminComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent},
 ];
