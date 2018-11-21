@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col col-lg-2">
         <div class="list-group">
-            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(1)'>
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(1)' [ngClass]="{active:currentSelection===1}">
                 Поръчки
             </button>
-            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(2)'>
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(2)' [ngClass]="{active:currentSelection===2}">
                 Потребители
             </button>
-            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(3)'>
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(3)' [ngClass]="{active:currentSelection===3}">
                 Калкулатори
             </button>
         </div>
