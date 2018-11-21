@@ -6,16 +6,20 @@
     </button>
   </div>
 </div>
+
 <div class='container' *ngIf="new==false">
-  <button class="btn btn-primary" type="submit" (click)='newClick(true)'>New</button>
+  <button class="btn btn-primary" type="submit" (click)='newClick(true)'>Нов</button>
   <table class="table table-sm" id='userTable'>
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Username</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
+        <th scope="col">Потребителско име</th>
+        <th scope="col">Име</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Парола</th>
       </tr>
+    </thead>
+    <tbody>
       <tr *ngFor="let user of users">
         <td>
           {{user.id}}
@@ -33,44 +37,45 @@
           <input type="password" [(ngModel)]='user.password' required="true" class="form-control" placeholder="Password">
         </td>
         <td>
-          <button class="btn btn-primary" type="submit" (click)='editUser(user)'>Edit</button>
+          <button class="btn btn-primary" type="submit" (click)='editUser(user)'>Промени</button>
         </td>
         <td>
-          <button class="btn btn-secondary" type="submit" (click)='deleteUser(user)'>Delete</button>
+          <button class="btn btn-secondary" type="submit" (click)='deleteUser(user)'>Изтрий</button>
         </td>
       </tr>
-    </thead>
+    </tbody>
   </table>
 </div>
 
 <div *ngIf="new==true" class='container'>
   <table class="table" id='userTable'>
-    <thead>
-      <tr>
-        <th scope="col">Username</th>
-      </tr>
       <tr>
         <td>
-          <input type="text" [(ngModel)]='user.username' required="true" class="form-control col-3" placeholder="Username">
+          <label>Потребителско име</label>
+          <input type="text" [(ngModel)]='user.username' required="true" class="form-control col-md-auto" placeholder="Username">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control col-3" placeholder="First Name">
+          <label>Име</label>
+          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control col-md-auto" placeholder="First Name">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control col-3" placeholder="Last Name">
+          <label>Фамилия</label>
+          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control col-md-auto" placeholder="Last Name">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="password" [(ngModel)]='user.password' required="true" class="form-control col-3" placeholder="Password">
+          <label>Парола</label>
+          <input type="password" [(ngModel)]='user.password' required="true" class="form-control col-md-auto" placeholder="Password">
         </td>
       </tr>
-    </thead>
   </table>
-  <button class="btn btn-primary" type="submit" (click)='createUser(user)'>Create</button>
-  <button class="btn btn-secondary" type="submit" (click)='newClick(false)'>Back</button>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button class="btn btn-primary" type="submit" (click)='createUser(user)'>Създай</button>
+    <button class="btn btn-secondary" type="submit" (click)='newClick(false)'>Обратно</button>
+  </div>
 </div>

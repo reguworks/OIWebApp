@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import url from '../settings/db-connection';
+import url from '../../settings/db-connection'
 
 @Injectable()
 export class AuthService {

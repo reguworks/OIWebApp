@@ -1,1 +1,21 @@
-<app-users></app-users>
+<div class="row">
+    <div class="col col-lg-2">
+        <div class="list-group">
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(1)'>
+                Поръчки
+            </button>
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(2)'>
+                Потребители
+            </button>
+            <button class="list-group-item list-group-item-action" (click)='listGroupSelect(3)'>
+                Калкулатори
+            </button>
+        </div>
+    </div>
+    <div class="col-md-auto">
+        <app-users *ngIf='currentSelection==2'></app-users>
+    </div>
+    <div class="col col-lg-2">
+
+    </div>
+</div>
