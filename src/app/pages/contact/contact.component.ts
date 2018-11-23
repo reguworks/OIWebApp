@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../../models/message';
 import { EmailServiceService } from '../../services/email/email-service.service'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -27,6 +28,12 @@ export class ContactComponent implements OnInit {
     }, err => this.showError(err));
   }
 
+  public SendData(reqForm:NgForm){
+
+    if(!reqForm.valid)
+      return;
+    
+  }
 
   private showError(err: any){
     //alert(err.error.message.response);
