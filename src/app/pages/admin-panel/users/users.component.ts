@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().subscribe((data: User[]) => {
       this.users = data[0] ;
       this.visible = true;
-      this.setPage(1);
+      this.setPage(this.pager.currentPage);
     }, err => this.showError(err),);
   }
 
