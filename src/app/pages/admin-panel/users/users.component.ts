@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../../models/user';
 import { UsersService } from '../../../services/users/users.service';
-import { map } from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { PagerService } from '../../../services/pager/pager.service';
 
 @Component({
   selector: 'app-users',
@@ -18,16 +17,29 @@ export class UsersComponent implements OnInit {
   erroMessage: string;
   visible: boolean = false;
 
-  constructor(private userService: UsersService) { }
+  pager: any = {};
+  pagedItems: any[];
+
+  constructor(private userService: UsersService, private pagerService: PagerService) { }
 
   ngOnInit() {
     this.getUsers();
+    
   }
+
+  setPage(page: number) {
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.users.length, page);
+
+    // get current page of items
+    this.pagedItems = this.users.slice(this.pager.startIndex, this.pager.endIndex + 1);
+}
 
   private getUsers(): void {
     this.userService.getUsers().subscribe((data: User[]) => {
       this.users = data[0] ;
       this.visible = true;
+      this.setPage(1);
     }, err => this.showError(err),);
   }
 

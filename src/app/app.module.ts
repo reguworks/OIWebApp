@@ -22,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { AuthService } from './services/authentication/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { PagerService } from './services/pager/pager.service';
 
 import domain from '../../settings/db-domain';
 
@@ -59,7 +60,8 @@ export function tokenGetter() {
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    PagerService
   ],
   bootstrap: [AppComponent],
   

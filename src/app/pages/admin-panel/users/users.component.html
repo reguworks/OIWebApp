@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of pagedItems">
         <td>
           {{user.id}}
         </td>
@@ -43,39 +43,59 @@
           <button class="btn btn-secondary" type="submit" (click)='deleteUser(user)'>Изтрий</button>
         </td>
       </tr>
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+          <a (click)="setPage(1)" class="page-link">&laquo;</a>
+        </li>
+        <!-- <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+          <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
+        </li> -->
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+          <a (click)="setPage(page)" class="page-link">{{page}}</a>
+        </li>
+        <!-- <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+          <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+        </li> -->
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+          <a (click)="setPage(pager.totalPages)" class="page-link">&raquo;</a>
+        </li>
+      </ul>
     </tbody>
   </table>
 </div>
 
 <div *ngIf="new==true" class='container'>
   <table class="table" id='userTable'>
-      <tr>
-        <td>
-          <label>Потребителско име</label>
-          <input type="text" [(ngModel)]='user.username' required="true" class="form-control col-md-auto" placeholder="Username">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>Име</label>
-          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control col-md-auto" placeholder="First Name">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>Фамилия</label>
-          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control col-md-auto" placeholder="Last Name">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>Парола</label>
-          <input type="password" [(ngModel)]='user.password' required="true" class="form-control col-md-auto" placeholder="Password">
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <label>Потребителско име</label>
+        <input type="text" [(ngModel)]='user.username' required="true" class="form-control col-md-auto" placeholder="Username">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Име</label>
+        <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control col-md-auto" placeholder="First Name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Фамилия</label>
+        <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control col-md-auto" placeholder="Last Name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Парола</label>
+        <input type="password" [(ngModel)]='user.password' required="true" class="form-control col-md-auto" placeholder="Password">
+      </td>
+    </tr>
   </table>
   <div class="btn-group" role="group" aria-label="Basic example">
     <button class="btn btn-primary" type="submit" (click)='createUser(user)'>Създай</button>
     <button class="btn btn-secondary" type="submit" (click)='newClick(false)'>Обратно</button>
   </div>
 </div>
+
+
