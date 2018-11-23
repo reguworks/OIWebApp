@@ -25,16 +25,16 @@
           {{user.id}}
         </td>
         <td>
-          <input type="text" [(ngModel)]='user.username' required="true" class="form-control" placeholder="Username">
+          <input type="text" [(ngModel)]='user.username' required="true" class="form-control" >
         </td>
         <td>
-          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control" placeholder="First Name">
+          <input type="text" [(ngModel)]='user.firstName' required="true" class="form-control" >
         </td>
         <td>
-          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control" placeholder="Last Name">
+          <input type="text" [(ngModel)]='user.lastName' required="true" class="form-control" >
         </td>
         <td>
-          <input type="password" [(ngModel)]='user.password' required="true" class="form-control" placeholder="Password">
+          <input type="password" [(ngModel)]='user.password' required="true" class="form-control" >
         </td>
         <td>
           <button class="btn btn-primary" type="submit" (click)='editUser(user)'>Промени</button>
