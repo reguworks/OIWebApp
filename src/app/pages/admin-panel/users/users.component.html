@@ -9,7 +9,7 @@
 
 <div class='container' *ngIf="new==false && visible">
   <button class="btn btn-primary" type="submit" (click)='newClick(true)'>Нов</button>
-  <table class="table table-sm" id='userTable'>
+  <table class="table table-sm table-borderless" id='userTable'>
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -97,5 +97,7 @@
     <button class="btn btn-secondary" type="submit" (click)='newClick(false)'>Обратно</button>
   </div>
 </div>
+
+
 
 
