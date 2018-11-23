@@ -28,8 +28,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form_name">Име *</label>
-                                <input [(ngModel)]='message.firstName' type="text" class="form-control"
-                                    placeholder="Моля, въведете името си *"
+                                <input [(ngModel)]='message.firstName' type="text" class="form-control" placeholder="Моля, въведете името си *"
                                     required #firstName="ngModel" name='firstName'>
                                 <!-- <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
                                     <div *ngIf="firstName.errors.required">
@@ -45,8 +44,7 @@
                             <div class="form-group">
                                 <label for="form_lastname">Фамилия *</label>
                                 <input [(ngModel)]='message.lastName' id="form_lastname" type="text" name="surname"
-                                    class="form-control" placeholder="Моля, въведете фамилия *" required
-                                    data-error="Lastname is required.">
+                                    class="form-control" placeholder="Моля, въведете фамилия *" required data-error="Lastname is required.">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -82,7 +80,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input (click)="SendData(reqForm)" [disabled]="!reqForm.valid" type="submit" class="btn btn-primary" value="Изпрати" (click)='messageSend(message)'>
+                            <input (click)="SendData(reqForm)" [disabled]="!reqForm.valid" type="submit" class="btn btn-primary"
+                                value="Изпрати" (click)='messageSend(message)'>
                         </div>
                     </div>
 

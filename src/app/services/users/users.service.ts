@@ -12,11 +12,11 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
 
-  getUsers() {
+  public getUsers() {
     return this.http.get(`${url}/users`);
   }
 
-  insertUser(user: User) {
+  public insertUser(user: User) {
     return this.http.post(`${url}/users`, user);
   }
 
@@ -24,11 +24,11 @@ export class UsersService {
   //   return this.http.get<User>(`${this.url}/contact` + '/' + id);
   // }
 
-  updateUser(user: User) {
+  public updateUser(user: User) {
     return this.http.put(`${url}/users`, user);
   }
 
-  deleteUser(id: number) {
+  public deleteUser(id: number) {
 
     var obj = this.http.delete(`${url}/users/` + id);
 

@@ -9,10 +9,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  message: Message = new Message();
-  alertShow: boolean = false;
-  successShow: boolean = false;
-  erroMessage: string;
+  public message: Message = new Message();
+  public alertShow: boolean = false;
+  public successShow: boolean = false;
+  public erroMessage: string;
 
   constructor(private emailService: EmailServiceService) { }
  
